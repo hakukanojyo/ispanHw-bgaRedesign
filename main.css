@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+:root {
+  --primary-color: #0b72b5;
+  --secondary-color: #ebf5ff;
+  --text-primary: #27272a;
+  --text-secondary: #0b72b5;
+  --text-onmain: #fafafa;
+}
+header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--secondary-color);
+}
+.header-logo {
+  padding: 0px 0px 0px 40px;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1360px;
+  width: 100%;
+}
+.header-navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 16px 40px;
+}
+.header-search {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+input[type="text"] {
+  border: 2px solid var(--primary-color);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+}
+.btn-search {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  min-width: 40px;
+  color: var(--text-onmain);
+  aspect-ratio: 1 / 1;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+.btn-playnow {
+  color: var(--text-onmain);
+  background: linear-gradient(0deg, #198ddb, #00d2ff);
+  border: #cd9777 3px solid;
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 0px rgba(119, 73, 54, 1);
+}
+.divider {
+  width: 2px;
+  align-self: stretch;
+  background-color: var(--text-primary);
+}
+.navbar-a {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  gap: 28px;
+}
+.navbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.navbar-btn button {
+  display: flex;
+  border: 2px solid var(--text-primary);
+  border-radius: 999px;
+  background-color: var(--text-onmain);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-btn button img {
+  width: 24px;
+  height: 24px;
+}
