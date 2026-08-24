@@ -295,6 +295,8 @@ h3 {
 .homepage-content {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-width: 0;
   gap: 32px;
 }
 .featured-banner img {
@@ -413,9 +415,10 @@ h3 {
 .new-cards {
   display: flex;
   gap: 16px;
-  /* overflow-x: auto; */
-  /* scroll-snap-type: x proximity; */
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
+  min-width: 0;
 }
 
 .popular-cards .game-card {
@@ -427,4 +430,33 @@ h3 {
   flex: 0 0 220px;
   aspect-ratio: 220 / 140;
   scroll-snap-align: start;
+}
+.homepage-function {
+  position: sticky;
+  top: 95px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 0 0 56px;
+}
+.homepage-function button {
+  width: 48px;
+  height: 48px;
+  /* border: none; */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.function-btn--inline {
+  background-color: #bbc93b;
+  border: #949f30 3px solid;
+  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.5);
+}
+.function-btn--heart {
+  background-color: #4fc3f7;
+  border: #3da6d6 3px solid;
+  box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.5);
 }
