@@ -15,9 +15,12 @@
 header {
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
   width: 100%;
   background-color: var(--secondary-color);
   border-bottom: var(--primary-color) 3px solid;
+  z-index: 100;
 }
 .header-logo {
   padding: 0px 0px 0px 40px;
@@ -42,7 +45,7 @@ header {
   gap: 8px;
 }
 input[type="text"] {
-  border: 2px solid var(--text-primary);
+  border: 2px solid var(--primary-color);
   border-radius: 999px;
   padding: 8px 12px;
   font-size: 14px;
@@ -51,7 +54,8 @@ input[type="text"] {
 }
 .btn-search {
   background-color: var(--primary-color);
-  border: var(--text-primary) 2px solid;
+  /* border: var(--text-primary) 2px solid; */
+  border: none;
   border-radius: 999px;
   cursor: pointer;
   min-width: 40px;
@@ -128,15 +132,19 @@ aside {
   height: 100%;
   margin: auto;
   padding: 32px;
+  gap: 24px;
 }
 .homepage-filter {
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 12px;
   width: 285px;
+  flex-shrink: 0;
   position: sticky;
+  top: 95px;
+  align-self: flex-start;
   height: calc(100vh - var(--header-height) - var(--content-padding) * 2);
   padding: 24px 20px;
-  /* overflow-y: auto; */
+  overflow-y: auto;
 }
 .filter-layout {
   display: flex;
@@ -275,7 +283,6 @@ h3 {
   color: var(--text-onmain);
   /* border: var(--text-primary) 2px solid; */
 }
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -284,4 +291,140 @@ h3 {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
+}
+.homepage-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.featured-banner img {
+  width: 100%;
+  border-radius: 12px;
+}
+.featured-banner {
+  position: relative;
+}
+.featured-tag {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background-color: #f7c948;
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
+}
+.recommended > img {
+  border-radius: 12px;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.recommended {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.recommended-cards {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+.recommended-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.recommended-side-bottom {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+.recommended-side-bottom .game-card {
+  flex: 1;
+}
+
+.game-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.game-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-title {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  white-space: nowrap; /* 1. 強制不換行 */
+  overflow: hidden; /* 2. 超出範圍的部分隱藏 */
+  text-overflow: ellipsis;
+  right: 16px;
+}
+.game-card--large {
+  height: 100%;
+}
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon-fire {
+  width: 20px;
+  height: 20px;
+  color: var(--primary-color);
+}
+
+.section-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.icon-arrow {
+  width: 16px;
+  height: 16px;
+}
+.popular-cards,
+.new-cards {
+  display: flex;
+  gap: 16px;
+  /* overflow-x: auto; */
+  /* scroll-snap-type: x proximity; */
+  -webkit-overflow-scrolling: touch;
+}
+
+.popular-cards .game-card {
+  flex: 0 0 320px;
+  aspect-ratio: 320 / 200;
+  scroll-snap-align: start;
+}
+.new-cards .game-card {
+  flex: 0 0 220px;
+  aspect-ratio: 220 / 140;
+  scroll-snap-align: start;
 }
