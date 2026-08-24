@@ -31,7 +31,7 @@
             </button>
           </form>
           <div class="navbar">
-            <div class="navbar-a">
+            <div class="navbar-links">
               <a class="btn-playnow" href="#"
                 ><img src="./img/icn/game.svg" alt="paly now" />立即遊玩
               </a>
@@ -46,7 +46,7 @@
                 ><img src="./img/icn/chat.svg" alt="bga chat" />討論區
               </a>
             </div>
-            <div class="navbar-btn">
+            <div class="navbar-actions">
               <button class="btn-notify">
                 <img src="./img/icn/bell.svg" alt="bga notify" />
               </button>
@@ -58,5 +58,460 @@
         </div>
       </div>
     </header>
+    <div class="homepage-wrapper">
+      <div class="homepage-layout">
+        <aside class="homepage-filter">
+          <div class="filter-title">
+            <h2>篩選遊戲</h2>
+            <p>FILTER QUEST</p>
+          </div>
+          <div class="filter-layout">
+            <form class="filter-content">
+              <!-- <p>
+              <img src="./img/icn/cancel.svg" alt="cancel icon" />清除篩選條件
+            </p> -->
+              <div class="filter-option">
+                <div class="option">
+                  <!-- <div class="option-title">
+                  <h3><img src="./img/icn/people.svg" alt="" />玩家數</h3>
+                  <span class="filter-toggle-arrow">▼</span>
+                </div> -->
+                  <button class="filter-toggle" type="button">
+                    <span
+                      ><img
+                        src="./img/icn/people.svg"
+                        alt="人數icon"
+                      />玩家數</span
+                    >
+                    <span class="filter-toggle-arrow">▲</span>
+                  </button>
+                  <div class="option-divider"></div>
+                  <div class="people-content option-content-gap">
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="1"
+                      />
+                      不限
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="1"
+                      />
+                      1人 [單人模式]
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="2"
+                      />
+                      2人 [對決模式]
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="3-5"
+                      />
+                      3-5人
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="6-9"
+                      />
+                      6-9人
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="10plus"
+                      />
+                      10+人
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="filter-content">
+              <div class="filter-option">
+                <div class="option">
+                  <button class="filter-toggle" type="button">
+                    <span
+                      ><img
+                        src="./img/icn/time.svg"
+                        alt="時間icon"
+                      />遊玩時間</span
+                    >
+                    <span class="filter-toggle-arrow">▲</span>
+                  </button>
+                  <div class="option-divider"></div>
+                  <div class="people-content option-content-gap">
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="1"
+                      />
+                      不限
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="1"
+                      />
+                      簡短
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="2"
+                      />
+                      長度適中
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="players"
+                        value="3-5"
+                      />
+                      耗時 [大於30分鐘]
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="filter-content">
+              <div class="filter-option">
+                <div class="option">
+                  <button class="filter-toggle" type="button">
+                    <span
+                      ><img
+                        src="./img/icn/complex.svg"
+                        alt="遊戲複雜度icon"
+                      />遊戲複雜度</span
+                    >
+                    <span class="filter-toggle-arrow">▲</span>
+                  </button>
+                  <div class="option-divider"></div>
+                  <div class="people-content option-content-gap">
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="complex"
+                        value="1"
+                      />
+                      不限
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="complex"
+                        value="1"
+                      />
+                      休閒小品
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="complex"
+                        value="2"
+                      />
+                      適合一般玩家
+                    </label>
+                    <label class="option-item">
+                      <input
+                        class="radio-box"
+                        type="radio"
+                        name="complex"
+                        value="3-5"
+                      />
+                      適合深度玩家
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="filter-content">
+              <div class="filter-option">
+                <div class="option">
+                  <button class="filter-toggle" type="button">
+                    <span
+                      ><img
+                        src="./img/icn/castle.svg"
+                        alt="主題icon"
+                      />遊戲主題</span
+                    >
+                    <span class="filter-toggle-arrow">▲</span>
+                  </button>
+                  <div class="option-divider"></div>
+                  <div class="tag-group option-content-gap">
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        value="western style"
+                      />
+                      <span>西部風格</span>
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="fantasy" />
+                      <span>奇幻</span>
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="conquer" /><span
+                        >征服</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        value="abstract"
+                      /><span>抽象</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        value="adventure"
+                      /><span>冒險</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        value="construction"
+                      /><span>建設</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        value="science fiction"
+                      /><span>科幻</span>
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="food" /><span
+                        >食物</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="type"
+                        value="aviation"
+                      /><span>航空</span>
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="animal" /><span
+                        >動物</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="explore" /><span
+                        >探索</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="surreal" /><span
+                        >超現實 / 滑稽 / 荒誕</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="spy" /><span
+                        >間諜</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="economy" /><span
+                        >經濟</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="sports" /><span
+                        >運動</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="war" /><span
+                        >戰爭遊戲</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="history" /><span
+                        >歷史</span
+                      >
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="type" value="railway" /><span
+                        >鐵路</span
+                      >
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="filter-content">
+              <div class="filter-option">
+                <div class="option">
+                  <button class="filter-toggle" type="button">
+                    <span
+                      ><img
+                        src="./img/icn/mechanism.svg"
+                        alt="遊戲機制icon"
+                      />遊戲機制</span
+                    >
+                    <span class="filter-toggle-arrow">▲</span>
+                  </button>
+                  <div class="option-divider"></div>
+                  <div class="tag-group option-content-gap">
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="mechanism"
+                        value="manual placement"
+                      />
+                      <span>人工放置</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="mechanism"
+                        value="not equal"
+                      />
+                      <span>不對等</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="mechanism"
+                        value="engine building"
+                      />
+                      <span>引擎構築</span>
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="mechanism" value="card" />
+                      <span>卡牌</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="mechanism"
+                        value="word play"
+                      />
+                      <span>文字遊戲</span>
+                    </label>
+                    <label class="tag-item">
+                      <input type="checkbox" name="mechanism" value="target" />
+                      <span>目標</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="filter-content">
+              <div class="filter-option">
+                <div class="option">
+                  <button class="filter-toggle" type="button">
+                    <span
+                      ><img
+                        src="./img/icn/specificType.svg"
+                        alt="bga特定類型icon"
+                      />特定類型</span
+                    >
+                    <span class="filter-toggle-arrow">▲</span>
+                  </button>
+                  <div class="option-divider"></div>
+                  <div class="tag-group option-content-gap">
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="specificType"
+                        value="party game"
+                      />
+                      <span>派對遊戲</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="specificType"
+                        value="origin"
+                      />
+                      <span>原創</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="specificType"
+                        value="family"
+                      />
+                      <span>家庭</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="specificType"
+                        value="round"
+                      />
+                      <span>推薦以回合制遊玩</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="specificType"
+                        value="rightnow"
+                      />
+                      <span>推薦以即時制遊玩</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="specificType"
+                        value="classic"
+                      />
+                      <span>經典</span>
+                    </label>
+                    <label class="tag-item">
+                      <input
+                        type="checkbox"
+                        name="specificType"
+                        value="award"
+                      />
+                      <span>獲獎遊戲</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </aside>
+        <main class="homepage-content">
+          <h1 class="visually-hidden">Board Game Arena - 探索桌遊的無限可能</h1>
+        </main>
+        <div class="homepage-function"></div>
+      </div>
+    </div>
   </body>
 </html>
