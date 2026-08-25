@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
+    <!-- 手機版：頂部系統通知，建議使用平板或電腦瀏覽 -->
+    <div class="mobile-notice" hidden>
+      建議使用平板或電腦瀏覽本網站，以獲得最佳遊戲體驗。
+    </div>
     <header>
       <div class="header-inner">
         <div class="header-logo">
@@ -56,8 +60,63 @@
             </div>
           </div>
         </div>
+        <!-- 平板版：漢堡選單（CSS-only，checkbox + label 沿用 .tag-item 的隱藏 input 技巧） -->
+        <label class="hamburger-btn" hidden>
+          <input type="checkbox" class="hamburger-toggle" />
+          <span class="hamburger-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M3 6H21M3 12H21M3 18H21"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+        </label>
+        <nav class="mobile-nav-panel" hidden>
+          <a class="mobile-nav-link" href="#"
+            ><img src="./img/icn/list.svg" alt="bga game list" />遊戲列表</a
+          >
+          <a class="mobile-nav-link" href="#"
+            ><img src="./img/icn/news.svg" alt="bga news" />新聞</a
+          >
+          <a class="mobile-nav-link" href="#"
+            ><img src="./img/icn/chat.svg" alt="bga chat" />討論區</a
+          >
+          <a class="mobile-nav-link" href="#"
+            ><img src="./img/icn/bell.svg" alt="bga notify" />通知</a
+          >
+          <a class="mobile-nav-link" href="#"
+            ><img src="./img/icn/me.svg" alt="bga me" />會員</a
+          >
+        </nav>
       </div>
     </header>
+    <!-- 平板版：搜尋框移到 header 正下方，獨立一行 -->
+    <form class="mobile-search" hidden>
+      <input type="text" placeholder="搜尋遊戲..." />
+      <button type="button" class="btn-search">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M9.5 16C7.68333 16 6.146 15.3707 4.888 14.112C3.63 12.8533 3.00067 11.316 3 9.5C2.99933 7.684 3.62867 6.14667 4.888 4.888C6.14733 3.62933 7.68467 3 9.5 3C11.3153 3 12.853 3.62933 14.113 4.888C15.373 6.14667 16.002 7.684 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L20.3 18.9C20.4833 19.0833 20.575 19.3167 20.575 19.6C20.575 19.8833 20.4833 20.1167 20.3 20.3C20.1167 20.4833 19.8833 20.575 19.6 20.575C19.3167 20.575 19.0833 20.4833 18.9 20.3L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16ZM9.5 14C10.75 14 11.8127 13.5627 12.688 12.688C13.5633 11.8133 14.0007 10.7507 14 9.5C13.9993 8.24933 13.562 7.187 12.688 6.313C11.814 5.439 10.7513 5.00133 9.5 5C8.24867 4.99867 7.18633 5.43633 6.313 6.313C5.43967 7.18967 5.002 8.252 5 9.5C4.998 10.748 5.43567 11.8107 6.313 12.688C7.19033 13.5653 8.25267 14.0027 9.5 14Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </form>
     <div class="homepage-wrapper">
       <div class="homepage-layout">
         <aside class="homepage-filter">
@@ -65,8 +124,119 @@
             <h2>篩選遊戲</h2>
             <p>FILTER QUEST</p>
           </div>
+          <!-- 平板版：水平篩選 bar，取代桌機版垂直側欄；tab 切換用 radio + :checked（純 CSS） -->
+          <!-- mf-tab-none：隱藏的「重置」radio，用來實現「再按一次 / 點外面收合」，不算在 .mobile-filter-radio 群組內 -->
+          <input
+            type="radio"
+            name="mobile-filter-tab"
+            id="mf-tab-none"
+            class="mobile-filter-radio-none"
+            hidden
+          />
+          <label class="mobile-filter-backdrop" for="mf-tab-none" hidden></label>
+          <div class="mobile-filter-bar" hidden>
+            <span class="mobile-filter-label">篩選遊戲：</span>
+            <div class="mobile-filter-tabs">
+              <span class="mobile-filter-tab-slot">
+                <input
+                  type="radio"
+                  name="mobile-filter-tab"
+                  id="mf-tab-players"
+                  class="mobile-filter-radio"
+                />
+                <label class="mobile-filter-tab-btn" for="mf-tab-players"
+                  ><img src="./img/icn/people.svg" alt="" />玩家數</label
+                >
+                <label
+                  class="mobile-filter-tab-btn mobile-filter-tab-close"
+                  for="mf-tab-none"
+                  ><img src="./img/icn/people.svg" alt="" />玩家數</label
+                >
+              </span>
+              <span class="mobile-filter-tab-slot">
+                <input
+                  type="radio"
+                  name="mobile-filter-tab"
+                  id="mf-tab-time"
+                  class="mobile-filter-radio"
+                />
+                <label class="mobile-filter-tab-btn" for="mf-tab-time"
+                  ><img src="./img/icn/time.svg" alt="" />遊玩時間</label
+                >
+                <label
+                  class="mobile-filter-tab-btn mobile-filter-tab-close"
+                  for="mf-tab-none"
+                  ><img src="./img/icn/time.svg" alt="" />遊玩時間</label
+                >
+              </span>
+              <span class="mobile-filter-tab-slot">
+                <input
+                  type="radio"
+                  name="mobile-filter-tab"
+                  id="mf-tab-complexity"
+                  class="mobile-filter-radio"
+                />
+                <label class="mobile-filter-tab-btn" for="mf-tab-complexity"
+                  ><img src="./img/icn/complex.svg" alt="" />遊戲複雜度</label
+                >
+                <label
+                  class="mobile-filter-tab-btn mobile-filter-tab-close"
+                  for="mf-tab-none"
+                  ><img src="./img/icn/complex.svg" alt="" />遊戲複雜度</label
+                >
+              </span>
+              <span class="mobile-filter-tab-slot">
+                <input
+                  type="radio"
+                  name="mobile-filter-tab"
+                  id="mf-tab-theme"
+                  class="mobile-filter-radio"
+                />
+                <label class="mobile-filter-tab-btn" for="mf-tab-theme"
+                  ><img src="./img/icn/castle.svg" alt="" />主題</label
+                >
+                <label
+                  class="mobile-filter-tab-btn mobile-filter-tab-close"
+                  for="mf-tab-none"
+                  ><img src="./img/icn/castle.svg" alt="" />主題</label
+                >
+              </span>
+              <span class="mobile-filter-tab-slot">
+                <input
+                  type="radio"
+                  name="mobile-filter-tab"
+                  id="mf-tab-mechanism"
+                  class="mobile-filter-radio"
+                />
+                <label class="mobile-filter-tab-btn" for="mf-tab-mechanism"
+                  ><img src="./img/icn/mechanism.svg" alt="" />遊戲機制</label
+                >
+                <label
+                  class="mobile-filter-tab-btn mobile-filter-tab-close"
+                  for="mf-tab-none"
+                  ><img src="./img/icn/mechanism.svg" alt="" />遊戲機制</label
+                >
+              </span>
+              <span class="mobile-filter-tab-slot">
+                <input
+                  type="radio"
+                  name="mobile-filter-tab"
+                  id="mf-tab-specific"
+                  class="mobile-filter-radio"
+                />
+                <label class="mobile-filter-tab-btn" for="mf-tab-specific"
+                  ><img src="./img/icn/specificType.svg" alt="" />特定類型</label
+                >
+                <label
+                  class="mobile-filter-tab-btn mobile-filter-tab-close"
+                  for="mf-tab-none"
+                  ><img src="./img/icn/specificType.svg" alt="" />特定類型</label
+                >
+              </span>
+            </div>
+          </div>
           <div class="filter-layout">
-            <form class="filter-content">
+            <form class="filter-content" data-tab="players">
               <!-- <p>
               <img src="./img/icn/cancel.svg" alt="cancel icon" />清除篩選條件
             </p> -->
@@ -145,7 +315,7 @@
                 </div>
               </div>
             </form>
-            <form class="filter-content">
+            <form class="filter-content" data-tab="time">
               <div class="filter-option">
                 <div class="option">
                   <button class="filter-toggle" type="button">
@@ -199,7 +369,7 @@
                 </div>
               </div>
             </form>
-            <form class="filter-content">
+            <form class="filter-content" data-tab="complexity">
               <div class="filter-option">
                 <div class="option">
                   <button class="filter-toggle" type="button">
@@ -253,7 +423,7 @@
                 </div>
               </div>
             </form>
-            <form class="filter-content">
+            <form class="filter-content" data-tab="theme">
               <div class="filter-option">
                 <div class="option">
                   <button class="filter-toggle" type="button">
@@ -373,7 +543,7 @@
                 </div>
               </div>
             </form>
-            <form class="filter-content">
+            <form class="filter-content" data-tab="mechanism">
               <div class="filter-option">
                 <div class="option">
                   <button class="filter-toggle" type="button">
@@ -431,7 +601,7 @@
                 </div>
               </div>
             </form>
-            <form class="filter-content">
+            <form class="filter-content" data-tab="specific">
               <div class="filter-option">
                 <div class="option">
                   <button class="filter-toggle" type="button">
