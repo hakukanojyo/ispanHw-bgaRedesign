@@ -60,7 +60,6 @@
             </div>
           </div>
         </div>
-        <!-- 平板版：漢堡選單（CSS-only，checkbox + label 沿用 .tag-item 的隱藏 input 技巧） -->
         <label class="hamburger-btn" hidden>
           <input type="checkbox" class="hamburger-toggle" />
           <span class="hamburger-icon">
@@ -99,7 +98,7 @@
         </nav>
       </div>
     </header>
-    <!-- 平板版：搜尋框移到 header 正下方，獨立一行 -->
+
     <form class="mobile-search" hidden>
       <input type="text" placeholder="搜尋遊戲..." />
       <button type="button" class="btn-search">
@@ -124,8 +123,6 @@
             <h2>篩選遊戲</h2>
             <p>FILTER QUEST</p>
           </div>
-          <!-- 平板版：水平篩選 bar，取代桌機版垂直側欄；tab 切換用 radio + :checked（純 CSS） -->
-          <!-- mf-tab-none：隱藏的「重置」radio，用來實現「再按一次 / 點外面收合」，不算在 .mobile-filter-radio 群組內 -->
           <input
             type="radio"
             name="mobile-filter-tab"
@@ -133,7 +130,11 @@
             class="mobile-filter-radio-none"
             hidden
           />
-          <label class="mobile-filter-backdrop" for="mf-tab-none" hidden></label>
+          <label
+            class="mobile-filter-backdrop"
+            for="mf-tab-none"
+            hidden
+          ></label>
           <div class="mobile-filter-bar" hidden>
             <span class="mobile-filter-label">篩選遊戲：</span>
             <div class="mobile-filter-tabs">
@@ -225,12 +226,18 @@
                   class="mobile-filter-radio"
                 />
                 <label class="mobile-filter-tab-btn" for="mf-tab-specific"
-                  ><img src="./img/icn/specificType.svg" alt="" />特定類型</label
+                  ><img
+                    src="./img/icn/specificType.svg"
+                    alt=""
+                  />特定類型</label
                 >
                 <label
                   class="mobile-filter-tab-btn mobile-filter-tab-close"
                   for="mf-tab-none"
-                  ><img src="./img/icn/specificType.svg" alt="" />特定類型</label
+                  ><img
+                    src="./img/icn/specificType.svg"
+                    alt=""
+                  />特定類型</label
                 >
               </span>
             </div>

@@ -469,17 +469,16 @@ h3 {
 
   .homepage-layout {
     flex-direction: column;
-    padding-top: 0; /* 讓篩選 bar 緊貼在搜尋框下面，中間不留 .homepage-layout 原本桌機版的上邊距 */
+    padding-top: 0;
   }
 
   .homepage-function {
     position: fixed;
-    bottom: 24px;
+    /* bottom: 300px; */
     right: 24px;
-    top: auto;
+    top: 240px;
   }
 
-  /* ---------- Header：只留立即遊玩，其餘收進漢堡選單 ---------- */
   .header-navbar .header-search {
     display: none;
   }
@@ -493,8 +492,6 @@ h3 {
     display: none;
   }
 
-  /* .header-search 隱藏後 .navbar（立即遊玩）變成唯一可見的子項，
-     改成靠右對齊，緊貼在漢堡按鈕左邊，讓它跟著漢堡一起對齊到搜尋框右緣 */
   .header-navbar {
     justify-content: flex-end;
     padding: 8px 12px;
@@ -502,7 +499,6 @@ h3 {
 
   .header-inner {
     position: relative;
-    /* 右邊留 24px，跟下面搜尋框的水平內距對齊，讓漢堡按鈕跟放大鏡按鈕右緣對齊 */
     padding-right: 24px;
   }
 
@@ -512,7 +508,7 @@ h3 {
     justify-content: center;
     width: 40px;
     height: 40px;
-    flex-shrink: 0; /* .header-navbar 桌機版的 width:100% 會擠壓兄弟元素，鎖住大小避免被壓扁 */
+    flex-shrink: 0;
     border: 2px solid var(--text-primary);
     border-radius: 999px;
     cursor: pointer;
@@ -553,7 +549,6 @@ h3 {
     display: flex;
   }
 
-  /* ---------- 搜尋框：移到 header 正下方，獨立一行 ---------- */
   .mobile-search {
     display: flex;
     align-items: stretch;
@@ -573,15 +568,11 @@ h3 {
     min-width: 0;
   }
 
-  /* ---------- 篩選區：垂直側欄 -> 水平 tab bar + overlay ---------- */
   .homepage-filter {
     width: 100%;
-    /* sticky 而非 relative：overlay 的 absolute 定位仍以它為基準，
-       但因為它的父層 .homepage-layout 貫穿整個頁面高度，sticky 才有足夠範圍可以黏住，
-       不會因為自身（連同收合的 overlay）只有 bar 那麼高就提早滑出畫面 */
     position: sticky;
     top: calc(var(--header-height) + var(--mobile-search-height));
-    height: auto; /* 取消桌機版算出來的固定高度 */
+    height: auto;
     overflow: visible;
     padding: 0;
     background-color: transparent;
@@ -602,10 +593,7 @@ h3 {
     background-color: rgba(255, 255, 255, 0.85);
     overflow-x: auto;
     position: relative;
-    z-index: 3; /* 永遠在 backdrop 之上，開著某個 tab 時仍可點別的 tab 切換 */
-    /* 底色滿版：不管 .homepage-filter 上層有多少 padding，
-       都用「relative + left:50% + margin-left:-50vw + width:100vw」
-       這個經典 full-bleed 技巧，把背景延伸到貼齊螢幕左右兩側 */
+    z-index: 3;
     left: 50%;
     width: 100vw;
     margin-left: -50vw;
@@ -629,9 +617,6 @@ h3 {
     display: none;
   }
 
-  /* 每個 tab 是一個 slot：底下疊「開啟」label，選中時上面再疊一張同樣外觀、
-     但指向 mf-tab-none 的「關閉」label——蓋住原本的 label，所以再按一次同一個
-     位置點到的其實是關閉用的 label，藉此做出「再點一次收合」且不需要 JS */
   .mobile-filter-tab-slot {
     position: relative;
     display: inline-flex;
@@ -648,7 +633,9 @@ h3 {
     white-space: nowrap;
     cursor: pointer;
     background-color: rgba(185, 185, 185, 0.6);
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   .mobile-filter-tab-btn img {
@@ -678,29 +665,23 @@ h3 {
   #mf-tab-specific:checked ~ .mobile-filter-tab-close {
     display: inline-flex;
   }
-
-  /* 點畫面其他地方收合：一片鋪滿全螢幕、透明的 label，只在有 tab 展開時出現，
-     蓋在 bar/overlay 之下、頁面其他內容之上，點下去等於點了 mf-tab-none */
-  .mobile-filter-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    cursor: default;
-  }
+      .mobile-filter-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        cursor: default;
+      }
 
   .homepage-filter:has(.mobile-filter-radio:checked) .mobile-filter-backdrop {
     display: block;
   }
 
-  /* 展開後不再重複顯示分類名稱（tab 本身的 icon + 文字已經說明了），
-     直接隱藏桌機版的標題列（icon+文字+箭頭）與底下的分隔線 */
   .filter-content .filter-toggle,
   .filter-content .option-divider {
     display: none;
   }
 
-  /* overlay 容器：預設收合，等任一 tab 被選中才顯示 */
   .filter-layout {
     display: none;
     position: absolute;
@@ -710,9 +691,7 @@ h3 {
     background-color: #ebf5ff;
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
     padding: 20px 24px;
-    z-index: 2; /* 介於 bar(3) 跟 backdrop(1) 之間：點 overlay 內容不會被 backdrop 蓋掉 */
-    /* 淺藍色底也滿版：跟 .mobile-filter-bar 同一招 full-bleed 技巧，
-       裡面的白色卡片（.option）維持原本內縮的樣子不動 */
+    z-index: 2;
     left: 50%;
     width: 100vw;
     margin-left: -50vw;
@@ -722,19 +701,16 @@ h3 {
     display: flex;
   }
 
-  /* 各分類的篩選內容，預設收合，只顯示對應 tab 選中的那組（單選式切換） */
   .filter-content {
     display: none;
   }
 
   .homepage-filter:has(#mf-tab-players:checked)
     .filter-content[data-tab="players"],
-  .homepage-filter:has(#mf-tab-time:checked)
-    .filter-content[data-tab="time"],
+  .homepage-filter:has(#mf-tab-time:checked) .filter-content[data-tab="time"],
   .homepage-filter:has(#mf-tab-complexity:checked)
     .filter-content[data-tab="complexity"],
-  .homepage-filter:has(#mf-tab-theme:checked)
-    .filter-content[data-tab="theme"],
+  .homepage-filter:has(#mf-tab-theme:checked) .filter-content[data-tab="theme"],
   .homepage-filter:has(#mf-tab-mechanism:checked)
     .filter-content[data-tab="mechanism"],
   .homepage-filter:has(#mf-tab-specific:checked)
@@ -743,30 +719,22 @@ h3 {
   }
 }
 
-/* 手機版的樣式寫在這裡：目前只加「建議使用平板或電腦」的頂部通知列，
-   排版仍沿用上面的平板版規則（767px 以下同時符合兩個 media query） */
+/* 手機版的樣式寫在這裡：目前只加「建議使用平板或電腦」的頂部通知列，排版仍沿用上面的平板版規則 */
 @media (max-width: 767px) {
   :root {
     --mobile-notice-height: 40px;
   }
 
-  /* body 上方讓出通知列的高度，避免固定在頂部的通知列蓋住 header */
   body {
     padding-top: var(--mobile-notice-height);
   }
 
   .mobile-notice {
-    /* 用 block + text-align 而不是 flex：
-       flex 容器裡的文字是匿名 flex item，預設 min-width:auto 只會撐開、不會換行，
-       文字一長就整排橫向溢出畫面（已實測到這個問題），改回單純的區塊置中就正常換行了 */
     display: block;
     text-align: center;
     position: fixed;
     top: 0;
     left: 0;
-    /* 用 100vw 而不是 100%：目前平板版排版裡有些元素在手機寬度下還沒完全收窄，
-       頁面本身會有橫向 overflow，若用 100% 通知列會被撐得比螢幕還寬，
-       100vw 固定以視窗實際寬度為準，不受頁面內容 overflow 影響 */
     width: 100vw;
     box-sizing: border-box;
     min-height: var(--mobile-notice-height);
@@ -777,16 +745,12 @@ h3 {
     font-weight: 500;
     letter-spacing: 0.5px;
     text-align: center;
-    z-index: 200; /* 蓋在 header(100) 之上 */
+    z-index: 200;
   }
 
-  /* header 原本 sticky 在 top:0，讓給通知列，改成貼在通知列下面 */
   header {
     top: var(--mobile-notice-height);
   }
-
-  /* 平板版把搜尋框、篩選 bar 的 sticky 高度都是從 header 底部起算，
-     手機版 header 往下移了，這兩個 sticky 起點也要一併往下加通知列的高度 */
   .mobile-search {
     top: calc(var(--mobile-notice-height) + var(--header-height));
   }
